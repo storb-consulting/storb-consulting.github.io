@@ -1,0 +1,351 @@
+/* =========================================
+   STORB Consulting - Design System
+   ========================================= */
+
+/* Local Fonts */
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/inter/Inter-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/inter/Inter-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/inter/Inter-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../fonts/montserrat/Montserrat-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Brand Colors - Professional & Trustworthy */
+  --stc-primary: #0f172a;
+  /* Slate 900 */
+  --stc-secondary: #334155;
+  /* Slate 700 */
+  --stc-accent: #2563eb;
+  /* Blue 600 - Action Color */
+  --stc-accent-hover: #1d4ed8;
+  --stc-bg-light: #f8fafc;
+  /* Slate 50 */
+  --stc-text-main: #1e293b;
+  /* Slate 800 */
+  --stc-text-muted: #64748b;
+  /* Slate 500 */
+
+  /* UI Elements */
+  --stc-radius: 0.75rem;
+  --stc-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --stc-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --stc-shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --stc-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-bs-theme="dark"] :root {
+  --stc-primary: #f8fafc;
+  /* Slate 50 */
+  --stc-secondary: #cbd5e1;
+  /* Slate 300 */
+  --stc-accent: #3b82f6;
+  /* Blue 500 */
+  --stc-accent-hover: #60a5fa;
+  /* Blue 400 */
+  --stc-bg-light: #0f172a;
+  /* Slate 900 */
+  --stc-text-main: #f1f5f9;
+  /* Slate 100 */
+  --stc-text-muted: #94a3b8;
+  /* Slate 400 */
+}
+
+/* Base Typography */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--bs-heading-color);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--stc-accent);
+  text-decoration: none;
+  transition: var(--stc-transition);
+}
+
+a:hover {
+  color: var(--stc-accent-hover);
+}
+
+/* =========================================
+   Components
+   ========================================= */
+
+/* Navbar */
+.navbar {
+  background-color: var(--bs-body-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--bs-border-color-translucent);
+  box-shadow: var(--stc-shadow-sm);
+}
+
+.navbar-brand {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--bs-heading-color);
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  margin-right: 0.5rem;
+}
+
+.footer-logo {
+  height: 30px;
+  width: auto;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+.nav-link {
+  font-weight: 500;
+  color: var(--bs-nav-link-color);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--stc-accent);
+}
+
+/* Cards (Modern & "Lego-like" modularity) */
+.stc-card {
+  background: var(--bs-body-bg);
+  border: 1px solid var(--bs-border-color-translucent);
+  border-radius: var(--stc-radius);
+  transition: var(--stc-transition);
+  height: 100%;
+  overflow: hidden;
+}
+
+.stc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--stc-shadow-lg);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.stc-card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  /* Make image smaller within parent (Framed look) */
+  margin: 0.75rem 0.75rem 0 0.75rem;
+  border-radius: calc(var(--stc-radius) - 0.25rem);
+  padding-top: 56.25%;
+  /* Restored 16:9 to show full image */
+}
+
+.stc-card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.stc-card:hover .stc-card-img {
+  transform: scale(1.05);
+}
+
+.stc-card-body {
+  padding: 1.5rem;
+}
+
+.stc-card-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.stc-card-text {
+  color: var(--stc-text-muted);
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--stc-accent);
+  border-color: var(--stc-accent);
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  box-shadow: var(--stc-shadow-sm);
+  transition: var(--stc-transition);
+}
+
+.btn-primary:hover {
+  background-color: var(--stc-accent-hover);
+  border-color: var(--stc-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--stc-shadow-md);
+}
+
+.btn-outline-primary {
+  color: var(--stc-accent);
+  border-color: var(--stc-accent);
+  border-radius: 0.5rem;
+  font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--stc-accent);
+  border-color: var(--stc-accent);
+}
+
+/* Footer */
+footer {
+  background-color: var(--bs-body-bg);
+  border-top: 1px solid var(--bs-border-color-translucent);
+  font-size: 0.9rem;
+}
+
+/* Utilities */
+.text-justify {
+  text-align: justify;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+}
+
+.legal-text {
+  font-size: 0.85rem;
+  color: var(--stc-text-muted);
+}
+
+.hover-primary {
+  transition: var(--stc-transition);
+}
+
+.hover-primary:hover {
+  color: var(--stc-accent) !important;
+}
+
+/* Code Blocks */
+pre {
+  background: #0b0b0b;
+  color: #e6e6e6;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.code-copy {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  pre {
+    font-size: 0.85rem;
+  }
+}
+
+.gist .gist-file {
+  background: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+.gist .gist-data {
+  background: #1e1e1e !important;
+}
+
+.gist .blob-code {
+  background: #1e1e1e !important;
+  color: #e0e0e0 !important;
+}
+
+.gist .blob-num {
+  background: #1e1e1e !important;
+  color: #888 !important;
+}
+
+.gist .pl-pds {
+  color: #e0e0e0 !important;
+}
+
+.gist .pl-s {
+  color: #e0e0e0 !important;
+}
+
+.demo-block {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.code {
+  background: #eee;
+  padding: 10px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  white-space: nowrap;
+}
+
+.my-custom-theme {
+  --adcanvas-bg: #e1f5fe !important;
+  --adcanvas-text: #01579b !important;
+  --adcanvas-border: #4fc3f7 !important;
+  --adcanvas-radius-md: 16px !important;
+  --adcanvas-radius-sm: 8px !important;
+  --adcanvas-spacing-md: 20px !important;
+}
