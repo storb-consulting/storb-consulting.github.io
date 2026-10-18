@@ -1,0 +1,20 @@
+intro:
+  headline: "Erfahrung, die zählt."
+  text: "Seit unserer Gründung im Jahr 2000 lösen wir erfolgreich die Aufgaben unserer Kunden. Die Bandbreite unserer Projekte ist groß – viele Auftraggeber begleiten wir seit den ersten Tagen und arbeiten langfristig mit ihnen zusammen."
+  badge: "Seit 2000"
+
+features:
+  - title: "Großunternehmen"
+    description: "In komplexen Umfeldern liefern wir schnell belastbare Ergebnisse und navigieren sicher durch Konzernstrukturen."
+    icon: "apartment" # Corporate building
+    type: "material"
+  
+  - title: "Mittelstand & KMU"
+    description: "Bei kleineren und mittelständischen Unternehmen achten wir besonders auf Pragmatismus und einen raschen Return on Investment."
+    icon: "storefront" # Small business/store
+    type: "material"
+
+  - title: "Arbeitsweise"
+    description: "Nachhaltigkeit unserer Projekterfolge bildet die Basis. Unser Ansatz ist leistungs- und zielorientiert, angepasst an den Wandel."
+    icon: "shutter_speed" # Speed/Efficiency or 'engineering'
+    type: "material"

@@ -1,0 +1,28 @@
+intro:
+  headline: "Referenzen"
+  lead: "Gute Consultants zeichnen sich durch ihre Referenzen aus. Machen Sie sich ein Bild von unserer Arbeit."
+  text: "Unsere Beratungspraxis verdeutlicht: Das breite Spektrum unserer Auftraggeber stärkt unsere Lösungskompetenz. Davon profitieren sowohl große Unternehmen als auch kleine Kunden."
+
+highlights:
+  - "Branchenerfahrene Consultants sichern praxisnahe Lösungen."
+  - "Branchenübergreifendes Wissen eröffnet neue Perspektiven und innovative Ansätze."
+  - "Maßgeschneiderte Lösungen, die nachhaltig wirken."
+
+navigation:
+  - title: "Ausgewählte Projekte"
+    description: "Einblicke in konkrete Projektbeispiele und Case Studies."
+    url: "/references/featured-projects"
+    icon: "folder_special"
+    type: "material"
+
+  - title: "Ausgewählte Referenzen"
+    description: "Stimmen und Bewertungen unserer Kunden."
+    url: "/references/featured-references"
+    icon: "verified"
+    type: "material"
+
+  - title: "Ausgewählte Unternehmen"
+    description: "Eine Übersicht der Unternehmen, für die wir tätig waren."
+    url: "/references/featured-companies"
+    icon: "domain"
+    type: "material"

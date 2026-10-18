@@ -1,0 +1,92 @@
+---
+import { siteConfig } from '../data/index';
+
+interface Props {
+  title?: string | null;
+  description?: string | null;
+  image?: string | null;
+  locale?: string;
+  seoType?: string;
+  twitterCard?: string;
+  date?: Date;
+  prevUrl?: string | null;
+  nextUrl?: string | null;
+  canonicalPath?: string;
+}
+
+const {
+  title = null,
+  description = null,
+  image = null,
+  locale = siteConfig.locale,
+  seoType = 'WebPage',
+  twitterCard = 'summary_large_image',
+  date,
+  prevUrl = null,
+  nextUrl = null,
+  canonicalPath
+} = Astro.props;
+
+const pageTitle = title ? `${title} | ${siteConfig.title}` : `${siteConfig.title} | ${siteConfig.tagline}`;
+const ogTitle = title || siteConfig.title;
+const metaDesc = (description && description.trim().length > 0) ? description.replace(/<[^>]*>/g, '').trim() : siteConfig.description;
+const ogImage = image ? (image.startsWith('http') ? image : `${siteConfig.url}${image}`) : `${siteConfig.url}${siteConfig.image}`;
+const currentPath = canonicalPath || Astro.url.pathname;
+const canonicalUrl = `${siteConfig.url}${currentPath}`;
+
+const jsonLd: Record<string, any> = {
+  "@context": "https://schema.org",
+  "@type": seoType,
+  "author": {
+    "@type": "Person",
+    "name": siteConfig.author.name,
+    "url": siteConfig.author.url
+  },
+  "description": metaDesc,
+  "headline": ogTitle,
+  "image": ogImage,
+  "publisher": {
+    "@type": "Organization",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteConfig.url}${siteConfig.logo}`
+    },
+    "name": siteConfig.title
+  },
+  "url": canonicalUrl
+};
+
+if (!title) {
+  jsonLd.name = siteConfig.title;
+  jsonLd.sameAs = siteConfig.social.links;
+}
+if (date) {
+  jsonLd.datePublished = date.toISOString();
+  jsonLd.dateModified = date.toISOString();
+  jsonLd.mainEntityOfPage = {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  };
+}
+---
+<title>{pageTitle}</title>
+<meta property="og:title" content={ogTitle} />
+<meta name="author" content={siteConfig.author.name} />
+<meta property="og:locale" content={locale} />
+<meta name="description" content={metaDesc} />
+<meta property="og:description" content={metaDesc} />
+<link rel="canonical" href={canonicalUrl} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content={siteConfig.title} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:type" content={seoType === 'BlogPosting' ? 'article' : 'website'} />
+{date && <meta property="article:published_time" content={date.toISOString()} />}
+{prevUrl && <link rel="prev" href={`${siteConfig.url}${prevUrl}`} />}
+{nextUrl && <link rel="next" href={`${siteConfig.url}${nextUrl}`} />}
+<meta name="twitter:card" content={twitterCard} />
+<meta property="twitter:image" content={ogImage} />
+<meta property="twitter:title" content={ogTitle} />
+<meta name="twitter:site" content={`@${siteConfig.twitter.username}`} />
+<meta name="twitter:creator" content={`@${siteConfig.twitter.username}`} />
+<meta property="article:publisher" content={siteConfig.facebook.publisher} />
+<script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />

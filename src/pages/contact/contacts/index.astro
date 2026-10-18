@@ -1,0 +1,153 @@
+---
+import DefaultLayout from '../../../layouts/DefaultLayout.astro';
+import { siteConfig, siteData } from '../../../data';
+
+const contacts = siteData.contacts;
+---
+<DefaultLayout
+  title="Ansprechpartner bei STORB Consulting"
+  description="Christian Storb – Inhaber von STORB Consulting. Fundierte Ausbildung, langjährige Erfahrung und klare Schwerpunkte."
+  author="Christian Storb"
+  locale="de_DE"
+  seo={{ type: 'WebPage' }}
+  image="/assets/images/consulting/og-image.png"
+  twitter={{ card: 'summary_large_image', creator: '@ChristianStorb' }}
+  robots="index, follow"
+>
+  <div class="container">
+    <div class="row g-5">
+      <!-- Left Column: Profile & Philosophy -->
+      <div class="col-lg-5">
+        <div class="sticky-lg-top" style="top: 2rem; z-index: 1;">
+          <!-- Profile Card -->
+          <div class="card border-0 shadow-sm bg-body-tertiary mb-4">
+            <div class="card-body p-4 text-center">
+              <img src="/assets/images/consulting/authors/christian-storb.jpg" alt="Christian Storb" class="mb-3 mx-auto rounded-circle shadow-sm" style="width: 80px; height: 80px; object-fit: cover;" />
+              <h2 class="h3 fw-bold mb-1">{contacts.profile.name}</h2>
+              <p class="text-primary fw-medium mb-3">{contacts.profile.role}</p>
+
+              <hr class="my-4 opacity-10" />
+
+              <div class="text-start">
+                <h6 class="text-uppercase text-muted small fw-bold mb-3">Qualifikation</h6>
+                <ul class="list-unstyled mb-4">
+                  {contacts.qualifications.map((qual: string) => (
+                    <li class="d-flex align-items-center mb-2">
+                      <span class="material-symbols-outlined text-success me-2 fs-6">check_circle</span>
+                      {qual}
+                    </li>
+                  ))}
+                </ul>
+
+                <h6 class="text-uppercase text-muted small fw-bold mb-3">Schwerpunkte</h6>
+                <div class="d-flex flex-wrap gap-2">
+                  {contacts.focus_areas.map((focus: string) => (
+                    <span class="badge bg-primary-subtle text-primary-emphasis rounded-pill fw-normal px-3 py-2">
+                      {focus}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Philosophy -->
+          <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-3">Unsere Philosophie</h5>
+              {contacts.profile.philosophy.map((para: string) => (
+                <p class="text-muted small mb-3 last-mb-0">{para}</p>
+              ))}
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+              <h5 class="card-title fw-bold mb-3">Kontakt</h5>
+              <ul class="list-unstyled mb-0">
+                <li class="mb-2">
+                  <a href={`mailto:${siteConfig.author.email}`} class="text-decoration-none d-flex align-items-center">
+                    <span class="material-symbols-outlined me-2 fs-5">mail</span>
+                    {siteConfig.author.email}
+                  </a>
+                </li>
+                <li class="mb-2">
+                  <a href={siteConfig.author.linkedin} target="_blank" rel="noopener" class="text-decoration-none d-flex align-items-center">
+                    <span class="material-symbols-outlined me-2 fs-5">link</span>
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a href={siteConfig.author.github} target="_blank" rel="noopener" class="text-decoration-none d-flex align-items-center">
+                    <span class="material-symbols-outlined me-2 fs-5">code</span>
+                    GitHub
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right Column: Career Timeline -->
+      <div class="col-lg-7">
+        <h2 class="h4 border-bottom pb-3 mb-4">Beruflicher Werdegang</h2>
+
+        <div class="timeline">
+          {contacts.career.map((item: any) => (
+            <div class="timeline-item position-relative ps-4 pb-5 last-pb-0">
+              <!-- Dot -->
+              <div class="position-absolute start-0 top-0 translate-middle-x bg-primary rounded-circle border border-4 border-body" style="width: 16px; height: 16px; margin-top: 0.4rem;"></div>
+              <!-- Content -->
+              <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                  <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                    <h3 class="h5 fw-bold mb-0">{item.role}</h3>
+                    <span class="badge bg-secondary-subtle text-body-secondary">{item.year}</span>
+                  </div>
+                  <div class="mb-3">
+                    {item.link ? (
+                      <a href={item.link} target="_blank" rel="noopener" class="text-decoration-none fw-medium d-inline-flex align-items-center">
+                        {item.company}
+                        <span class="material-symbols-outlined fs-6 ms-1">open_in_new</span>
+                      </a>
+                    ) : (
+                      <span class="fw-medium text-body">{item.company}</span>
+                    )}
+                  </div>
+
+                  {item.details && (
+                    <>
+                      <p class="small text-muted mb-2">
+                        <span class="material-symbols-outlined fs-6 align-text-bottom me-1">domain</span>
+                        {item.details.industry}
+                      </p>
+                      {item.details.description && (
+                        <p class="card-text mt-3">{item.details.description}</p>
+                      )}
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .timeline {
+      border-left: 2px solid var(--bs-border-color);
+      margin-left: 0.5rem;
+    }
+    .last-mb-0:last-child {
+      margin-bottom: 0 !important;
+    }
+    .last-pb-0:last-child {
+      padding-bottom: 0 !important;
+    }
+  </style>
+</DefaultLayout>

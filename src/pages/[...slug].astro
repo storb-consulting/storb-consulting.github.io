@@ -1,0 +1,100 @@
+---
+import { render } from 'astro:content';
+import PostLayout from '../layouts/PostLayout.astro';
+import { siteConfig } from '../data';
+import { getSortedPosts, getPostUrl, getPostExcerptText } from '../utils/posts';
+
+export async function getStaticPaths() {
+  const sortedPosts = await getSortedPosts();
+  const paths: any[] = [];
+  const usedLowerRoutes = new Set<string>();
+
+  for (let i = 0; i < sortedPosts.length; i++) {
+    const post = sortedPosts[i];
+    const url = getPostUrl(post);
+    // Posts with directory permalink (ending with '/') are handled by src/pages/blog/[...slug]/index.astro
+    if (url.endsWith('/')) continue;
+
+    const routeParam = url.replace(/^\//, '').replace(/\.html$/, '');
+    usedLowerRoutes.add(routeParam.toLowerCase());
+
+    const prevObj = i + 1 < sortedPosts.length ? sortedPosts[i + 1] : null;
+    const nextObj = i - 1 >= 0 ? sortedPosts[i - 1] : null;
+
+    paths.push({
+      params: { slug: routeParam },
+      props: {
+        isRedirect: false,
+        post,
+        previousPost: prevObj ? { url: getPostUrl(prevObj), title: prevObj.data.title } : null,
+        nextPost: nextObj ? { url: getPostUrl(nextObj), title: nextObj.data.title } : null,
+      },
+    });
+  }
+
+  // Add redirect_from paths that do not collide (case-insensitively) with actual post routes
+  for (const post of sortedPosts) {
+    const targetUrl = `${siteConfig.url}${getPostUrl(post)}`;
+    const rf = post.data.redirect_from;
+    const redirectList = Array.isArray(rf) ? rf : rf ? [rf] : [];
+
+    for (const rawFrom of redirectList) {
+      const fromParam = rawFrom.replace(/^\//, '').replace(/\/$/, '').replace(/\.html$/, '');
+      if (!fromParam) continue;
+      if (usedLowerRoutes.has(fromParam.toLowerCase())) continue;
+      usedLowerRoutes.add(fromParam.toLowerCase());
+
+      paths.push({
+        params: { slug: fromParam },
+        props: {
+          isRedirect: true,
+          redirectUrl: targetUrl,
+        },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { isRedirect, redirectUrl, post, previousPost, nextPost } = Astro.props;
+const rendered = !isRedirect && post ? await render(post) : null;
+const Content = rendered ? rendered.Content : null;
+const description = !isRedirect && post
+  ? (post.data.description || getPostExcerptText(post.body || '', 50))
+  : '';
+---
+{isRedirect ? (
+  <html lang="en-US">
+    <head>
+      <meta charset="utf-8" />
+      <title>Redirecting&hellip;</title>
+      <link rel="canonical" href={redirectUrl} />
+      <script is:inline define:vars={{ redirectUrl }}>location = redirectUrl;</script>
+      <meta http-equiv="refresh" content={`0; url=${redirectUrl}`} />
+      <meta name="robots" content="noindex" />
+    </head>
+    <body>
+      <h1>Redirecting&hellip;</h1>
+      <a href={redirectUrl}>Click here if you are not redirected.</a>
+    </body>
+  </html>
+) : (
+  <PostLayout
+    title={post.data.title}
+    description={description}
+    date={post.data.date || new Date()}
+    categories={post.data.categories}
+    author={post.data.author}
+    locale={post.data.locale}
+    image={post.data.image}
+    caption={post.data.caption}
+    canonical_url={post.data.canonical_url}
+    twitter={post.data.twitter}
+    robots={post.data.robots}
+    previousPost={previousPost}
+    nextPost={nextPost}
+  >
+    {Content && <Content />}
+  </PostLayout>
+)}

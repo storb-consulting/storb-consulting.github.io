@@ -1,0 +1,191 @@
+---
+import { siteConfig } from '../data/index';
+import SeoHead from '../components/SeoHead.astro';
+import SchemaPerson from '../components/SchemaPerson.astro';
+import SchemaOrganization from '../components/SchemaOrganization.astro';
+import AdCarousel from '../components/AdCarousel.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Mermaid from '../components/Mermaid.astro';
+import { formatDateLong } from '../utils/posts';
+
+interface Props {
+  title: string;
+  description?: string | null;
+  date: Date;
+  categories?: string[];
+  image?: string | null;
+  author?: string | { name: string; url?: string };
+  locale?: string;
+  previousUrl?: string | null;
+  nextUrl?: string | null;
+  canonicalPath?: string;
+}
+
+const {
+  title,
+  description = null,
+  date,
+  categories = [],
+  image = null,
+  author,
+  locale = siteConfig.locale,
+  previousUrl = null,
+  nextUrl = null,
+  canonicalPath
+} = Astro.props;
+
+const authorName = typeof author === 'object' && author !== null ? author.name : (typeof author === 'string' ? author : siteConfig.author.name);
+let authorUrl = typeof author === 'object' && author !== null ? author.url : undefined;
+if (!authorUrl && authorName === siteConfig.author.name && siteConfig.author.url) {
+  authorUrl = siteConfig.author.url;
+}
+---
+<!DOCTYPE html>
+<html lang={siteConfig.lang} class="h-100" data-bs-theme="dark">
+
+<head>
+  <!-- Character encoding -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO & Social -->
+  <SeoHead
+    title={title}
+    description={description}
+    image={image}
+    locale={locale}
+    seoType="BlogPosting"
+    date={date}
+    canonicalPath={canonicalPath}
+  />
+  <SchemaPerson />
+  <SchemaOrganization />
+  <meta name="robots" content="index, follow">
+
+  <!-- Verification -->
+  <meta name="msvalidate.01" content="50E4DF6885A9E802F9939396E0483E3D" />
+  <meta name="google-site-verification" content="v1IaICzb6Ve4AAMD6dPYhqWkk5TxQ5Aa6vRxUSs89aA" />
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6012977884316456">
+
+  <!-- Assets -->
+  <link href="/assets/images/consulting/favicon.png" rel="icon" type="image/png">
+
+  <!-- CSS -->
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/material-symbols.css" rel="stylesheet">
+  <link href="/assets/css/custom.css" rel="stylesheet">
+  <link href="/assets/css/ads.css" rel="stylesheet">
+  <link href="/assets/css/adcanvas.min.css" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4ETH06PXMC" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-4ETH06PXMC');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6012977884316456"
+    crossorigin="anonymous" is:inline></script>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+  <AdCarousel />
+
+  <Navbar />
+
+  <main class="flex-shrink-0" role="main">
+
+    <!-- Hero / Header Section for Post -->
+    <div class="border-bottom py-5 mb-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <div class="mb-3 text-uppercase text-primary fw-bold small tracking-wider">
+              {categories.join(" • ")}
+            </div>
+            <h1 class="display-4 fw-bold mb-4">{title}</h1>
+            <div class="d-flex align-items-center justify-content-center text-muted">
+              <span class="d-flex align-items-center">
+                <span class="material-symbols-outlined me-1 fs-5">calendar_today</span>
+                {formatDateLong(date)}
+              </span>
+
+              {authorName && (
+                <>
+                  <span class="mx-2">•</span>
+                  <span class="d-flex align-items-center">
+                    <span class="material-symbols-outlined me-1 fs-5">person</span>
+                    {authorUrl ? (
+                      <a href={authorUrl}
+                        class="text-reset text-decoration-none border-bottom border-dark-subtle pb-0">{authorName}</a>
+                    ) : (
+                      authorName
+                    )}
+                  </span>
+                </>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+
+        {image && (
+          <div class="col-lg-8 mb-5">
+            <div class="rounded-4 overflow-hidden shadow-sm">
+              <img src={image} class="img-fluid w-100" alt={title}>
+            </div>
+          </div>
+        )}
+
+        <div class="col-lg-8">
+          <div class="p-4 p-md-5 rounded-4 shadow-sm border">
+            <div class="article-content" style="font-size: 1.1rem; line-height: 1.8;">
+              <slot />
+            </div>
+          </div>
+
+          <!-- Navigation between posts -->
+          <div class="d-flex justify-content-between py-4 mb-5">
+            {previousUrl ? (
+              <a class="btn btn-outline-secondary rounded-pill px-4" href={previousUrl}>
+                &larr; Vorheriger
+              </a>
+            ) : (
+              <div></div>
+            )}
+
+            {nextUrl && (
+              <a class="btn btn-outline-primary rounded-pill px-4" href={nextUrl}>
+                Nächster &rarr;
+              </a>
+            )}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+
+  <!-- Scripts -->
+  <Mermaid />
+  <script src="/assets/js/bootstrap.bundle.min.js" is:inline></script>
+  <script src="/assets/js/copy-code.js" is:inline></script>
+  <script src="https://www.dwin2.com/pub.1933231.min.js" is:inline></script>
+  <script src="/assets/js/adcanvas.min.js" defer is:inline></script>
+
+</body>
+
+</html>

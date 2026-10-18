@@ -1,0 +1,20 @@
+{
+  "project_name": "Jekyll-GitHub-Page",
+  "version": "1.0.0",
+  "description": "Configuration file for Antigravity agentic AI assistant",
+  "knowledge_sources": {
+    "primary": [
+      ".agent/agents",
+      ".agent/workflows/jekyll-workflow-protocol.md"
+    ],
+    "secondary": [
+      ".agent/prompts",
+      ".agent/rules",
+      ".agent/skills"
+    ]
+  },
+  "agent_configuration": {
+    "agents_path": ".agent/agents",
+    "workflow_file": ".agent/workflows/jekyll-workflow-protocol.md"
+  }
+}

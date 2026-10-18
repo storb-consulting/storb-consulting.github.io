@@ -1,0 +1,40 @@
+intro:
+  text: "STORB Consulting unterstützt Ihr Projekt bei Kunden und Geschäftspartnern vor Ort über den gesamten Lebenszyklus."
+
+lifecycle:
+  - title: "Planung"
+    icon: "design_services"
+    type: "material"
+  - title: "Entwicklung"
+    icon: "code"
+    type: "material"
+  - title: "Markteinführung"
+    icon: "rocket_launch"
+    type: "material"
+  - title: "Betrieb"
+    icon: "settings"
+    type: "material"
+
+benefits_intro: "Warum STORB Consulting?"
+benefits:
+  - title: "Know-how Transfer"
+    description: "Der Aufbau eigenen Spezialwissens ist oft zu aufwendig und langwierig. Wir bringen die Expertise direkt mit."
+    icon: "school" 
+    type: "material"
+  - title: "Flexibilität"
+    description: "Nach Projektabschluss wird spezielles Entwicklungswissen oft nicht mehr benötigt. Vermeiden Sie kostspielige Umschulungen."
+    icon: "swipe_vertical" 
+    type: "material"
+  - title: "Zeitfaktor"
+    description: "Während wir sofort „On‑Shore“ verfügbar sind, dauert der interne Wissensaufbau oft Monate. Wir beschleunigen Ihren Start."
+    icon: "schedule" 
+    type: "material"
+
+expertise:
+  title: "Unsere Expertise & Einsatzgebiet"
+  bullet_points:
+    - "Erfolgreiche Projekte im **Microsoft-Umfeld** seit 2000"
+    - "Breite Projekterfahrung in unterschiedlichsten Branchen"
+    - "Zusammenarbeit mit **Großunternehmen**, **Mittelstand** und **kleineren Auftraggebern**"
+    - "Langfristige Kundenbeziehungen durch nachhaltige Projekterfolge"
+  location_text: "Wir unterstützen unsere Kunden **vor Ort im gesamten Bundesgebiet**."

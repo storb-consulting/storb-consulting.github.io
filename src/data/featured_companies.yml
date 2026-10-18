@@ -1,0 +1,14 @@
+intro:
+  headline: "Ausgewählte Unternehmen"
+  text: "STORB Consulting hat in zahlreichen Projekten mit namhaften Unternehmen aus unterschiedlichen Branchen erfolgreich zusammengearbeitet. Die folgenden Firmen stehen exemplarisch für unsere Referenzen."
+
+companies:
+  - name: "ABIT AG"
+  - name: "ACCESS Systems Europe"
+  - name: "AXENEON"
+  - name: "DV-RATIO Nordwest GmbH"
+  - name: "IGH Automation GmbH"
+  - name: "Infineon AG"
+  - name: "rola Security Solutions GmbH"
+  - name: "SMS DEMAG AG"
+  - name: "T-Systems"

@@ -1,0 +1,32 @@
+---
+import { siteConfig } from '../data/index';
+
+interface Props {
+  title: string;
+  version?: string;
+  description?: string;
+  repo_url?: string | null;
+  date?: Date;
+}
+
+const { title, version = "", description = "", repo_url = "", date } = Astro.props;
+const schemaObj = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": title,
+  "version": version,
+  "description": description.replace(/<[^>]*>/g, '').replace(/\r?\n/g, ' ').trim(),
+  "codeRepository": repo_url || "",
+  "license": "https://opensource.org/licenses/MIT",
+  "datePublished": date ? date.toISOString() : "",
+  "programmingLanguage": {
+    "@type": "ComputerLanguage",
+    "name": "C#"
+  },
+  "author": {
+    "@type": "Person",
+    "name": siteConfig.author.name
+  }
+};
+---
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schemaObj, null, 2)} />

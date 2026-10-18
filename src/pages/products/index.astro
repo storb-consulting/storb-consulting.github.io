@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+
+const products = (await getCollection('products')).sort((a, b) => a.id.localeCompare(b.id));
+---
+<DefaultLayout
+  title="Produkte von STORB Consulting"
+  description="Open-Source .NET Bibliotheken und andere Projekte von Christian Storb: Fritz für AVM Fritz!Box TR-064 und Money.Unifi für SEPA-Zahlungsdateien. AdCanvas – eine leichte, modulare Werbe‑ und Content‑Engine für moderne Websites."
+  author="Christian Storb"
+  locale="de_DE"
+  seo={{ type: 'WebPage' }}
+  image="/assets/images/consulting/og-image.png"
+  twitter={{ card: 'summary_large_image', creator: '@ChristianStorb' }}
+  robots="index, follow"
+>
+  <div class="container">
+    <!-- Intro -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 text-center">
+        <p class="lead mb-5 col-lg-8 mx-auto">
+          Produkte und Open-Source .NET Bibliotheken – entwickelt für praxisnahe Anwendungsfälle im Bereich Netzwerk- und Finanzintegration.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-5 opacity-10" />
+
+  <div class="product-cards">
+    {products.map((product) => {
+      const url = `/products/${product.id}/`;
+      return (
+        <div class="mb-5">
+          <h2><a href={url}>{product.data.title}</a></h2>
+          <p>{product.data.description}</p>
+          {product.data.nuget_id && (
+            <p>
+              <img src={`https://img.shields.io/nuget/v/${product.data.nuget_id}.svg`} alt="NuGet Version" />
+              <img src={`https://img.shields.io/nuget/dt/${product.data.nuget_id}.svg`} alt="NuGet Downloads" />
+            </p>
+          )}
+          <a href={url} class="btn btn-primary">Produkt ansehen</a>
+          {product.data.nuget_id && (
+            <a href={`https://www.nuget.org/packages/${product.data.nuget_id}`} target="_blank" class="btn btn-secondary">NuGet installieren</a>
+          )}
+          {product.data.repo_url && (
+            <a href={product.data.repo_url} target="_blank" class="btn btn-secondary">GitHub</a>
+          )}
+        </div>
+      );
+    })}
+  </div>
+</DefaultLayout>

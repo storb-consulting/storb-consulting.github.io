@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import DefaultLayout from '../../../layouts/DefaultLayout.astro';
+import ProductLayout from '../../../layouts/ProductLayout.astro';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products.map((product) => ({
+    params: { slug: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const { Content } = await render(product);
+const isDefaultLayout = product.data.layout === 'default';
+---
+{isDefaultLayout ? (
+  <DefaultLayout
+    title={product.data.title}
+    description={product.data.description}
+    author={product.data.author}
+    locale={product.data.locale}
+    seo={product.data.seo}
+    image={product.data.image}
+    twitter={product.data.twitter}
+    robots={product.data.robots}
+  >
+    <Content />
+  </DefaultLayout>
+) : (
+  <ProductLayout
+    title={product.data.title}
+    description={product.data.description}
+    nuget_id={product.data.nuget_id}
+    repo_url={product.data.repo_url}
+    version={product.data.version}
+    author={product.data.author}
+    locale={product.data.locale}
+    seo={product.data.seo}
+    image={product.data.image}
+    twitter={product.data.twitter}
+    robots={product.data.robots}
+  >
+    <Content />
+  </ProductLayout>
+)}

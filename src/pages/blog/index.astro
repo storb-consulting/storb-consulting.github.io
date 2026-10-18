@@ -1,0 +1,17 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import BlogList from '../../components/BlogList.astro';
+import { getSortedPosts } from '../../utils/posts';
+
+const PER_PAGE = 10;
+const allPosts = await getSortedPosts();
+const pagePosts = allPosts.slice(0, PER_PAGE);
+const hasNext = allPosts.length > PER_PAGE;
+---
+<DefaultLayout title="Blog">
+  <BlogList
+    posts={pagePosts}
+    previousPagePath={null}
+    nextPagePath={hasNext ? '/blog/2/' : null}
+  />
+</DefaultLayout>

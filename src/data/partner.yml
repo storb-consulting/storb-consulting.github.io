@@ -1,0 +1,15 @@
+intro:
+  headline: "Synergy at Work"
+  text: "Die Zusammenarbeit mit engagierten und kompetenten Partnern ist ein zentraler Bestandteil unserer Unternehmensstrategie. Gemeinsam bilden wir einen interdisziplinären Expertenverbund, der für Ihre Fragestellungen ganzheitliche Lösungen entwickelt."
+  subtext: "Unter einer idealen Partnerschaft verstehen wir die Kooperation mit Unternehmen, die unsere Leistungen und Produkte mit ihren Kompetenzen ergänzen."
+
+partners:
+  - name: "4Unit Systems Integration GmbH"
+    description: "Begleitet anspruchsvolle IT-Projekte in allen Phasen und bietet ein breites Spektrum an Dienstleistungen."
+    url: "http://www.4unit.com/gm"
+    services:
+      - "Entwicklung individueller, plattformunabhängiger Softwarelösungen"
+      - "Anpassung („Customizing“) komplexer Standardsoftware"
+      - "Erneuerung und Migration bestehender IT-Systeme"
+      - "Unterstützung bei Einführung und Schulung von IT-Lösungen"
+      - "Komplettlösungen für Enterprise Content Management (ECM)"

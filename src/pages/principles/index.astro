@@ -1,0 +1,48 @@
+---
+import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { siteData } from '../../data';
+
+const principles = siteData.principles;
+---
+<DefaultLayout
+  title="Unternehmensgrundsätze von STORB Consulting"
+  description="Die Unternehmensgrundsätze von STORB Consulting – Unabhängigkeit, Objektivität, Kompetenz und Vertraulichkeit."
+  author="Christian Storb"
+  locale="de_DE"
+  seo={{ type: 'WebPage' }}
+  image="/assets/images/consulting/og-image.png"
+  twitter={{ card: 'summary_large_image', creator: '@ChristianStorb' }}
+  robots="index, follow"
+>
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <p class="lead fst-italic">
+          "Neue Wege zu beschreiten hat bei uns Tradition."
+        </p>
+        <p>
+          Bei allem Wandel bleiben unsere Unternehmensgrundsätze unverändert – sie bilden das Gleichgewicht unserer Geschäftstätigkeit und sind die Basis für nachhaltige Beratungserfolge.
+        </p>
+      </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      {principles.map((item: any) => (
+        <div class="col">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+              <div class="text-primary mb-3">
+                <Icon icon={item.icon} type={item.type} />
+              </div>
+              <h3 class="h4 card-title mb-3">{item.title}</h3>
+              <p class="card-text text-muted">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</DefaultLayout>

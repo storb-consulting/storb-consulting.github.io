@@ -1,0 +1,80 @@
+---
+import DefaultLayout from './DefaultLayout.astro';
+import SchemaSoftware from '../components/SchemaSoftware.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  version?: string;
+  date?: Date;
+  nuget_id?: string | null;
+  repo_url?: string | null;
+}
+
+const {
+  title,
+  description = "",
+  version = "",
+  date,
+  nuget_id = null,
+  repo_url = null
+} = Astro.props;
+---
+<DefaultLayout title={title} description={description}>
+  <SchemaSoftware
+    title={title}
+    version={version}
+    description={description}
+    repo_url={repo_url}
+    date={date}
+  />
+
+  <div class="row mb-4">
+    <div class="col">
+      <h2 class="fw-bold">{title}</h2>
+      <p class="text-muted small">
+        Version: <strong>{version}</strong>
+        {nuget_id && (
+          <>
+            &bull; <a href={`https://www.nuget.org/packages/${nuget_id}`} target="_blank" rel="noopener">NuGet</a>
+          </>
+        )}
+        {repo_url && (
+          <>
+            &bull; <a href={repo_url} target="_blank" rel="noopener">GitHub</a>
+          </>
+        )}
+      </p>
+    </div>
+  </div>
+
+  {nuget_id && (
+    <div class="mb-4">
+      <img src={`https://img.shields.io/nuget/v/${nuget_id}.svg`} alt="NuGet Version" class="me-2">
+      <img src={`https://img.shields.io/nuget/dt/${nuget_id}.svg`} alt="NuGet Downloads" class="me-2">
+      <img src={`https://img.shields.io/github/license/chstorb/${title}.svg`} alt="License">
+    </div>
+  )}
+
+  <div class="mb-4">
+    <h3>Installation</h3>
+    <pre><code class="language-bash">dotnet add package {nuget_id} --version {version}</code></pre>
+  </div>
+
+  <div class="post-content">
+    <slot />
+  </div>
+
+  <div class="mt-4 d-flex gap-2 flex-wrap">
+    {repo_url && (
+      <>
+        <a href={repo_url} target="_blank" rel="noopener" class="btn btn-outline-primary">GitHub ansehen</a>
+        <a href={`${repo_url}/issues/new`} target="_blank" rel="noopener" class="btn btn-outline-secondary">Issue erstellen</a>
+      </>
+    )}
+    {nuget_id && (
+      <a href={`https://www.nuget.org/packages/${nuget_id}`} target="_blank" rel="noopener"
+        class="btn btn-outline-success">NuGet installieren</a>
+    )}
+  </div>
+</DefaultLayout>

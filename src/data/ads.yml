@@ -1,0 +1,103 @@
+partners:
+  - name: "airbalticde"
+    title: "Air Baltic"
+    url: "https://tidd.ly/4qhEC9o"
+    publisher_id: 29865
+    category: "flight"
+    include: "airbalticde.html"
+    active: true
+
+  - name: "awolvisioneu"
+    title: "AWOL Vision"
+    url: "https://www.awin1.com/cread.php?s=4644096&v=102513&q=592953&r=1933231"
+    publisher_id: 102513
+    category: "shopping"
+    include: "awolvisioneu.html"
+    active: false
+
+  - name: "limacity"
+    title: "limacity"
+    url: "https://www.lima-city.de/webhosting?cref=447478"
+    publisher_id: 447478
+    category: "hosting"
+    include: "limacity.html"
+    active: true
+
+  - name: "bahnde"
+    title: "bahn.de"
+    url: "https://www.awin1.com/cread.php?s=4658264&v=14964&q=372437&r=1933231"
+    publisher_id: 194964
+    category: "train"
+    include: "bahnde.html"
+    active: true
+
+  - name: "eurowingsholidaysde"
+    title: "Eurowings Holidays"
+    url: "https://www.awin1.com/cread.php?s=2888542&v=23469&q=413866&r=1933231"
+    publisher_id: 23469
+    category: "flight"
+    include: "eurowingsholidaysde.html"
+    active: true
+
+  - name: "flightrightde"
+    title: "Flightright"
+    url: "https://www.awin1.com/cread.php?s=4029161&v=15034&q=374559&r=1933231"
+    publisher_id: 15034
+    category: "legal"
+    include: "flightrightde.html"
+    active: true
+
+  - name: "gobusi"
+    title: "GoBusi"
+    url: "https://www.awin1.com/cread.php?s=3879662&v=113964&q=511925&r=1933231"
+    publisher_id: 113964
+    category: "bus"
+    include: "gobusi.html"
+    active: false
+
+  - name: "gurado"
+    title: "gurado"
+    url: "https://www.awin1.com/cread.php?s=4516840&v=112830&q=517156&r=1933231"
+    publisher_id: 112830
+    category: "shopping"
+    include: "gurado.html"
+    active: true
+
+  - name: "houseofsneakersde"
+    title: "House of Sneakers"
+    url: "https://www.awin1.com/cread.php?s=4536443&v=114336&q=528373&r=1933231"
+    publisher_id: 114336
+    category: "shopping"
+    include: "houseofsneakersde.html"
+    active: true
+
+  - name: "logomatten"
+    title: "Logomatten Welt"
+    url: "https://www.awin1.com/cread.php?awinmid=58127&awinaffid=1933231&ued=https%3A%2F%2Flogo-matten.com"
+    publisher_id: 58127
+    category: "shopping"
+    include: "logomatten.html"
+    active: true
+
+  - name: "zenhotelseu"
+    title: "Zen Hotels"
+    url: "https://www.awin1.com/cread.php?s=3955195&v=115953&q=520698&r=1933231"
+    publisher_id: 115953
+    category: "hotel"
+    include: "zenhotelseu.html"
+    active: true
+
+  - name: "100percentpure"
+    title: "100% Pure"
+    url: "https://www.awin1.com/cread.php?awinmid=13991&awinaffid=1933231"
+    publisher_id: 13991
+    category: "shopping"
+    include: "100percentpure.html"
+    active: true
+
+google_adsense:
+  client: "ca-pub-6012977884316456"
+  slots:
+    home_1: "8883317946"
+    home_2: "3603071102"
+    home_3: "7823096721"

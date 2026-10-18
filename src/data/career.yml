@@ -1,0 +1,32 @@
+intro:
+  headline: "Gestalten Sie Zukunft mit uns."
+  subline: "Wir suchen Persönlichkeiten mit Erfahrung, Unternehmergeist und Freude an Innovation."
+  text: "Das wachsende Interesse an unseren Beratungs- und Serviceleistungen eröffnet neue Chancen. Kommen Sie an Bord."
+
+features:
+  - title: "Anspruchsvolle Projekte"
+    description: "Wir arbeiten mit internationalen Konzernen ebenso wie mit mittelständischen Unternehmen – komplex und dynamisch."
+    icon: "rocket_launch"
+    type: "material"
+  
+  - title: "Nachhaltige Wirkung"
+    description: "Unsere Lösungen sind keine Eintagsfliegen. Wir schaffen rechtssichere Weblösungen, die Bestand haben."
+    icon: "psychology" # or 'verified'
+    type: "material"
+
+  - title: "Moderne Technologie"
+    description: "Cloud-Architektur, .NET und Blazor sind unser Zuhause. Wir setzen auf aktuelle Standards."
+    icon: "terminal" # or 'code'
+    type: "material"
+
+tech_stack:
+  - "Cloud Architecture"
+  - ".NET"
+  - "Blazor"
+  - "Azure"
+  - "Web Security"
+  - "Software Architecture"
+
+cta:
+  text: "Unsere Anforderungen ansehen"
+  link: "/career/requirements"

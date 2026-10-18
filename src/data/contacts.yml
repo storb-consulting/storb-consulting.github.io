@@ -1,0 +1,65 @@
+profile:
+  name: "Christian Storb"
+  role: "Inhaber von STORB Consulting"
+  image: "/assets/images/consulting/christian-storb.jpg" # Placeholder path, assuming usage or generic avatar
+  philosophy:
+    - "Seit über 20 Jahren begleite ich Unternehmen dabei, komplexe Software-Herausforderungen in skalierbare Lösungen zu verwandeln."
+    - "Mein Fokus liegt auf nachhaltiger Architektur und einer unabhängigen Beratung, die den geschäftlichen Erfolg in den Mittelpunkt stellt."
+
+qualifications:
+  - "Diplom-Betriebswirt (FH)"
+  - "Industriekaufmann"
+
+focus_areas:
+  - "Organisation"
+  - "Datenverarbeitung"
+  - "Rechnungswesen / Controlling"
+
+career:
+  - year: "2000"
+    role: "Gründung"
+    company: "STORB Consulting"
+    
+  - year: "1999 – 2000"
+    role: "Systemberater"
+    company: "rola Security Solutions"
+    link: "http://www.rola.com"
+    details:
+      industry: "IT-Dienste, privat, 11–50 Mitarbeiter"
+      description: "Entwicklung von Polizeiapplikationen: Feinkonzeption, Entwicklung und Test von Vorgangsbearbeitungssystemen im Rahmen von Großprojekten."
+
+  - year: "1996 – 1999"
+    role: "Organisationsprogrammierer"
+    company: "Roller GmbH & Co. KG"
+    link: "http://www.roller.de"
+    details:
+      industry: "Möbel, privat, 1001–5000 Mitarbeiter"
+      description: "Projekt zur Verbesserung der Warenwirtschaft, Projektleitung Bilddatenbank, Anwendungsentwicklung."
+
+  - year: "1994 – 1996"
+    role: "Controller"
+    company: "Dr. Otto Suwelack Nachf. GmbH & Co. KG"
+    link: "http://www.suwelack.de"
+    details:
+      industry: "Lebensmittel, privat, 201–500 Mitarbeiter"
+
+  - year: "1993"
+    role: "Werksstudent"
+    company: "BOG Siemens-Nixdorf Informationssysteme GmbH"
+    link: "http://www.bog.de"
+    details:
+      industry: "IT-Dienste, privat, 201–500 Mitarbeiter"
+
+  - year: "1990 – 1991"
+    role: "Fachberater"
+    company: "BOG Siemens-Nixdorf Informationssysteme GmbH"
+    link: "http://www.bog.de"
+    details:
+      industry: "IT-Dienste, privat, 51–200 Mitarbeiter"
+
+  - year: "1989"
+    role: "Kaufmännischer Angestellter"
+    company: "M Rump Industriewerbung GmbH"
+    link: null
+    details:
+      industry: "Marketing & Werbung, privat, 1–10 Mitarbeiter"

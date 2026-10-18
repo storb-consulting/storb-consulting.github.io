@@ -1,0 +1,19 @@
+import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
+
+export default defineConfig({
+  site: 'https://chstorb.github.io',
+  integrations: [sitemap()],
+  build: {
+    format: 'preserve',
+  },
+  markdown: {
+    syntaxHighlight: {
+      type: 'shiki',
+      excludeLangs: ['mermaid'],
+    },
+    shikiConfig: {
+      theme: 'github-dark',
+    },
+  },
+});

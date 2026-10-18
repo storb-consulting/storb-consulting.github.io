@@ -1,0 +1,92 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getPostUrl, getPostExcerptText, formatDateShort } from '../utils/posts';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+  previousPagePath?: string | null;
+  nextPagePath?: string | null;
+}
+
+const { posts, previousPagePath = null, nextPagePath = null } = Astro.props;
+---
+<section class="mb-5">
+  <div class="d-flex align-items-center mb-3">
+    <span class="material-symbols-outlined text-primary" style="font-size: 2.2rem;">
+      library_books
+    </span>
+    <h1 class="ms-2 mb-0 fw-bold">Blog</h1>
+  </div>
+
+  <p class="lead text-secondary">
+    Aktuelle Beiträge zu Softwarearchitektur, Cloud‑Modernisierung, .NET‑Entwicklung,
+    IoT‑Plattformen und technischen Entscheidungsgrundlagen.
+    Praxisnah, präzise und aus realen Projekten.
+  </p>
+</section>
+
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+  {posts.map((post) => {
+    const url = getPostUrl(post);
+    const cats = Array.isArray(post.data.categories)
+      ? post.data.categories
+      : post.data.categories
+      ? [post.data.categories]
+      : [];
+    const firstCat = cats[0] || null;
+    return (
+      <div class="col">
+        <article class="stc-card h-100 position-relative">
+          <div class="stc-card-img-wrapper border-bottom">
+            {post.data.image ? (
+              <img src={post.data.image} class="stc-card-img" alt={post.data.title} />
+            ) : (
+              <div class="d-flex align-items-center justify-content-center h-100 text-muted">
+                <span class="material-symbols-outlined fs-1">article</span>
+              </div>
+            )}
+          </div>
+
+          <div class="stc-card-body d-flex flex-column h-100">
+            <div class="mb-2">
+              <span class="badge bg-body-tertiary text-secondary border fw-normal">
+                {formatDateShort(post.data.date || new Date())}
+              </span>
+              {firstCat && (
+                <span class="badge bg-primary-subtle text-primary border border-primary-subtle fw-normal ms-1">
+                  {firstCat}
+                </span>
+              )}
+            </div>
+
+            <h2 class="stc-card-title fw-bold mb-2">
+              <a href={url} class="text-decoration-none text-reset stretched-link">
+                {post.data.title}
+              </a>
+            </h2>
+
+            <p class="stc-card-text flex-grow-1 mb-4">
+              {getPostExcerptText(post.body || '', 20)}
+            </p>
+
+            <div class="mt-auto pt-3 border-top d-flex align-items-center text-primary fw-medium">
+              Mehr lesen <span class="material-symbols-outlined ms-1" style="font-size: 1.25em;">arrow_right_alt</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    );
+  })}
+</div>
+
+<nav class="pagination mt-5 d-flex justify-content-between">
+  {previousPagePath ? (
+    <a class="btn btn-outline-primary" href={previousPagePath}>← Neuere Beiträge</a>
+  ) : (
+    <span></span>
+  )}
+
+  {nextPagePath && (
+    <a class="btn btn-outline-primary" href={nextPagePath}>Ältere Beiträge →</a>
+  )}
+</nav>

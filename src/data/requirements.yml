@@ -1,0 +1,49 @@
+intro:
+  text: "Sie verfügen über mindestens sechs Jahre Berufserfahrung und haben in Führungs- oder Beratungspositionen nachhaltige Erfolge erzielt. Eine hohe Fachkompetenz in mindestens zwei Branchen und Themen zeichnet Sie aus."
+  details: "Problemstellungen zu strukturieren gehört zu Ihrer Arbeitsweise; Projekthürden erkennen und abbauen gelingt Ihnen rechtzeitig. Sie überzeugen sowohl Top-Management als auch Mitarbeiter und fügen sich flexibel in bestehende Strukturen und Teams ein. Eigenverantwortung fordern und ausschöpfen ist für Sie selbstverständlich."
+
+industries:
+  title: "Branchenkompetenz"
+  description: "Wir suchen insbesondere Managementberater mit Erfahrung in:"
+  items:
+    - "Energieversorgung"
+    - "Finanzdienstleistung"
+    - "Handel und Konsumgüter"
+    - "Öffentlicher Bereich"
+    - "Telekommunikation"
+
+functional_skills:
+  title: "Funktionskompetenz"
+  description: "Zusätzlich sind Kenntnisse in folgenden Bereichen von Vorteil:"
+  items:
+    - "Controlling"
+    - "IT-Management"
+    - "Logistik"
+    - "Marketing, Vertrieb, Service"
+
+tasks:
+  title: "Ihre Aufgaben"
+  items:
+    - "Mitarbeit in allen Projektphasen: Analyse, Strategie, Modellierung, Implementierung, Test und Einführung"
+    - "Eigenständiges Informationsmanagement zur besseren Nutzung von Daten durch unsere Kunden"
+    - "Begleitung von Umstrukturierungen und organisatorischen Veränderungen – von der Konzeption bis zur Umsetzung"
+
+profile:
+  title: "Ihr Profil"
+  items:
+    - "Überdurchschnittlich abgeschlossenes Studium"
+    - "Sehr gute Kommunikationsfähigkeit auf allen Unternehmensebenen"
+    - "Ausgeprägte analytische und konzeptionelle Fähigkeiten"
+    - "Sehr gutes Englisch in Wort und Schrift"
+    - "Teamgeist, Flexibilität und Mobilität"
+
+offer:
+  title: "Was wir bieten"
+  items:
+    - "Ein spannendes Arbeitsumfeld mit täglich neuen Herausforderungen"
+    - "Die Möglichkeit, Ihr Talent voll zu entfalten – unterstützt durch kontinuierliche Weiterbildung"
+
+contact:
+  name: "Herr Christian Storb"
+  mobile: "+49 (0) 1590 6810 667"
+  email: "mail2storb@gmail.com"

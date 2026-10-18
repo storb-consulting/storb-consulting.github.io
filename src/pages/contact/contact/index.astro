@@ -1,0 +1,79 @@
+---
+import DefaultLayout from '../../../layouts/DefaultLayout.astro';
+import Icon from '../../../components/Icon.astro';
+import { siteData } from '../../../data';
+
+const contact = siteData.contact;
+---
+<DefaultLayout
+  title="Kontakt mit STORB Consulting"
+  description="Nimm Kontakt mit STORB Consulting auf – wir beraten dich von der Planung bis zum Betrieb."
+  author="Christian Storb"
+  locale="de_DE"
+  seo={{ type: 'WebPage' }}
+  image="/assets/images/consulting/og-image.png"
+  twitter={{ card: 'summary_large_image', creator: '@ChristianStorb' }}
+  robots="index, follow"
+>
+  <div class="container">
+    <!-- Intro -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-5 fw-bold mb-4">{contact.intro.headline}</h2>
+        <p class="lead text-muted mb-4">
+          {contact.intro.text}
+        </p>
+        <p class="text-body-secondary">
+          {contact.intro.subtext}
+        </p>
+      </div>
+    </div>
+
+    <!-- Contact Cards -->
+    <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center mb-5">
+      <!-- Phone -->
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0 text-center hover-lift">
+          <div class="card-body p-4">
+            <div class="mb-3 text-primary">
+              <Icon icon={contact.contact_info.mobile.icon} type="material" />
+            </div>
+            <h5 class="card-title">{contact.contact_info.mobile.label}</h5>
+            <p class="card-text text-muted mb-4">{contact.contact_info.mobile.value}</p>
+            <a href={contact.contact_info.mobile.href} class="btn btn-outline-primary stretched-link">
+              Anrufen
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0 text-center hover-lift">
+          <div class="card-body p-4">
+            <div class="mb-3 text-primary">
+              <Icon icon={contact.contact_info.email.icon} type="material" />
+            </div>
+            <h5 class="card-title">{contact.contact_info.email.label}</h5>
+            <p class="card-text text-muted mb-4">{contact.contact_info.email.value}</p>
+            <a href={contact.contact_info.email.href} class="btn btn-primary stretched-link">
+              E-Mail schreiben
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="row justify-content-center">
+      <div class="col-lg-6 text-center">
+        {contact.links.map((link: any) => (
+          <a href={link.url} class="btn btn-link text-decoration-none btn-lg">
+            <span class="material-symbols-outlined align-middle me-2">arrow_forward</span>
+            {link.title}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</DefaultLayout>

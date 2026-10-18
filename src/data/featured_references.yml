@@ -1,0 +1,24 @@
+intro:
+  headline: "Ausgewählte Referenzen"
+  text: "Vertrauen ist die Basis unserer Arbeit. Hier finden Sie Auszüge aus Projektbewertungen und Referenzschreiben, die unsere Arbeitsweise und Ergebnisse dokumentieren."
+
+references:
+  - title: "Multithreading-Servermodule mit VC++ und Oracle"
+    role: "Entwicklungskoordinator Kredit, ABIT AG"
+    date: "16.02.2005"
+    quote: "Der Consultant [Christian Storb] ist ein innovativer, flexibler Mitarbeiter, der sich sehr schnell in neue Sachgebiete einarbeitet. Seine außergewöhnliche Einsatzbereitschaft unterstützte unseren engen Projektrahmen. Fundierte VC++-Kenntnisse und fachlicher Background waren überdurchschnittlich. Wir haben ihn als kommunikativen Mitarbeiter kennengelernt, der sich durch seine persönliche Art gut ins Team eingefunden hat."
+
+  - title: "OOA, Visual Studio, Rational Rose, MFC"
+    role: "Geschäftsführer IT-Dienstleistungsunternehmen (>350 MA)"
+    date: "15.03.2002"
+    quote: "Der Consultant [Christian Storb] verfügt über umfassende Fachkenntnisse in objektorientierter Software-Technologie und setzt diese sicher und zielgerichtet ein. Dank seiner schnellen Auffassungsgabe durchdrang er auch komplexe Situationen vollständig. Sein analytisches Denkvermögen führte stets zu zutreffenden Urteilen. Er identifizierte sich voll mit seinen Aufgaben, arbeitete über die geregelte Zeit hinaus und übernahm Verantwortung. Auch unter schwierigsten Bedingungen erzielte er hervorragende Ergebnisse. Wir waren mit seinen Leistungen jederzeit außerordentlich zufrieden."
+
+  - title: "Anwendungsentwickler für Client-Server-Systeme"
+    role: "Geschäftsführer, Hard- und Softwarefirma"
+    date: "31.12.2000"
+    quote: "Aufgrund seiner überdurchschnittlichen Einsatzbereitschaft hatte der Consultant [Christian Storb] maßgeblichen Anteil an der termingerechten Fertigstellung verschiedener Projekte. Wir lernten ihn als qualifizierten, engagierten und absolut zuverlässigen Mitarbeiter kennen. Alle Aufgaben erledigte er selbstständig und gewissenhaft stets zu unserer vollsten Zufriedenheit. Sein vorbildliches Auftreten und seine Fachkenntnisse sicherten ihm die Wertschätzung von Vorgesetzten, Mitarbeitern und Kunden."
+
+  - title: "Warenwirtschaft, Projektleitung Bilddatenbank"
+    role: "Personalleiter, großer Möbelanbieter in Europa (>3.000 MA)"
+    date: "21.02.2005"
+    quote: "Wir beurteilen den Consultant [Christian Storb] als kreativ, vielseitig, engagiert, flexibel, belastbar und einsatzbereit. Er überzeugte durch Kommunikations- und Informationsverhalten, Serviceorientierung, Fachwissen und Organisationskenntnisse. Seine teamorientierte Arbeitsweise führte stets zu Ergebnissen von höchster Qualität. Der Consultant war integer, loyal, ehrlich, fleißig und pünktlich – sein Verhalten gegenüber Vorgesetzten, Mitarbeitern und externen Personen war jederzeit einwandfrei."

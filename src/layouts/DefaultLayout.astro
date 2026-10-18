@@ -1,0 +1,156 @@
+---
+import { siteConfig } from '../data/index';
+import SeoHead from '../components/SeoHead.astro';
+import SchemaPerson from '../components/SchemaPerson.astro';
+import SchemaOrganization from '../components/SchemaOrganization.astro';
+import AdCarousel from '../components/AdCarousel.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Mermaid from '../components/Mermaid.astro';
+
+interface Props {
+  title?: string | null;
+  description?: string | null;
+  image?: string | null;
+  locale?: string;
+  seoType?: string;
+  twitterCard?: string;
+  prevUrl?: string | null;
+  nextUrl?: string | null;
+  canonicalPath?: string;
+}
+
+const {
+  title = null,
+  description = null,
+  image = null,
+  locale = siteConfig.locale,
+  seoType = 'WebPage',
+  twitterCard = 'summary_large_image',
+  prevUrl = null,
+  nextUrl = null,
+  canonicalPath
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang={siteConfig.lang} class="h-100" data-bs-theme="dark">
+
+<head>
+  <!-- Character encoding -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO & Social -->
+  <SeoHead
+    title={title}
+    description={description}
+    image={image}
+    locale={locale}
+    seoType={seoType}
+    twitterCard={twitterCard}
+    prevUrl={prevUrl}
+    nextUrl={nextUrl}
+    canonicalPath={canonicalPath}
+  />
+  <SchemaPerson />
+  <SchemaOrganization />
+  <meta name="robots" content="index, follow">
+
+  <!-- Verification -->
+  <meta name="msvalidate.01" content="50E4DF6885A9E802F9939396E0483E3D" />
+  <meta name="google-site-verification" content="v1IaICzb6Ve4AAMD6dPYhqWkk5TxQ5Aa6vRxUSs89aA" />
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-6012977884316456">
+
+  <!-- Assets -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/assets/images/consulting/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="/assets/images/consulting/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="/assets/images/consulting/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="/assets/images/consulting/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512"
+    href="/assets/images/consulting/android-chrome-512x512.png">
+  <link rel="apple-touch-icon" href="/assets/images/consulting/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/images/consulting/site.webmanifest">
+
+  <!-- CSS -->
+  <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/css/material-symbols.css" rel="stylesheet">
+  <link href="/assets/css/custom.css" rel="stylesheet">
+  <link href="/assets/css/ads.css" rel="stylesheet">
+  <link href="/assets/css/adcanvas.min.css" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-4ETH06PXMC" is:inline></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-4ETH06PXMC');
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6012977884316456"
+    crossorigin="anonymous" is:inline></script>
+</head>
+
+<body class="d-flex flex-column h-100">
+  <AdCarousel />
+
+  <Navbar />
+
+  <main class="flex-shrink-0" role="main">
+    <div class="container py-5">
+
+      <!-- Page Title (Visually Hidden by default, accessible for Screen Readers) -->
+      <h1 class="visually-hidden mb-4 fw-bold">{siteConfig.title} @ STORB Consulting{title ? ` - ${title}` : ''}</h1>
+
+      <slot />
+
+    </div>
+  </main>
+
+  <Footer />
+
+  <!-- AdCanvas Config -->
+  <script is:inline>
+    /**
+     * Sanitizes HTML by escaping dangerous characters.
+     * @param {string} text - Text to sanitize
+     * @returns {string} Safe HTML-escaped text
+     */
+    function sanitize(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    window.AdCanvasConfig = {
+      feedUrl: "https://raw.githubusercontent.com/chstorb/chstorb.github.io/refs/heads/main/awin-travel.json",
+      templates: {
+        list: ad => `
+          <div class="adcanvas-ad-card">
+              <a href="${sanitize(ad.awDeepLink)}" rel="sponsored" target="_blank">
+                  <img src="${sanitize(ad.merchantImageUrl)}" alt="${sanitize(ad.productName)}" loading="lazy" decoding="async">
+                  <div class="adcanvas-ad-title">${sanitize(ad.productName)}</div>
+                  <div class="adcanvas-ad-destination-city">${sanitize(ad.destinationCity)}</div>
+                  <div class="adcanvas-ad-price">${sanitize(ad.displayPriceFormatted)}</div>
+              </a>
+          </div>`
+      }
+    };
+  </script>
+
+  <!-- Scripts -->
+  <Mermaid />
+  <script src="/assets/js/bootstrap.bundle.min.js" is:inline></script>
+  <script src="/assets/js/copy-code.js" is:inline></script>
+  <script src="https://www.dwin2.com/pub.1933231.min.js" is:inline></script>
+  <script src="/assets/js/adcanvas.min.js" type="module" defer is:inline></script>
+</body>
+
+</html>

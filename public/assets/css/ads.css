@@ -1,0 +1,56 @@
+.ad-banner {
+  height: 15rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.ad-banner img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+#adCarousel {
+  max-width: 45.5rem;
+  margin: 1rem auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--stc-radius);
+  background-color: var(--bs-body-bg);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--bs-body-bg);
+  border-radius: 50%;
+  padding: 0.625rem;
+}
+
+.carousel-inner {
+  padding: 1rem 2.5rem;
+}
+
+@media (max-width: 576px) {
+  .carousel-inner {
+    padding: 1 1.5rem;
+  }
+}
+
+.ad-badge {
+  position: absolute;
+  top: 0.05rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  color: lightgray;
+  font-size: 0.6rem;
+  pointer-events: none;
+}

@@ -1,0 +1,38 @@
+---
+import DefaultLayout from '../../../layouts/DefaultLayout.astro';
+import BlogList from '../../../components/BlogList.astro';
+import { getSortedPosts } from '../../../utils/posts';
+
+export async function getStaticPaths() {
+  const PER_PAGE = 10;
+  const allPosts = await getSortedPosts();
+  const totalPages = Math.ceil(allPosts.length / PER_PAGE);
+  const paths = [];
+
+  for (let page = 2; page <= totalPages; page++) {
+    const start = (page - 1) * PER_PAGE;
+    const pagePosts = allPosts.slice(start, start + PER_PAGE);
+    paths.push({
+      params: { page: String(page) },
+      props: {
+        posts: pagePosts,
+        page,
+        totalPages,
+      },
+    });
+  }
+
+  return paths;
+}
+
+const { posts, page, totalPages } = Astro.props;
+const previousPagePath = page === 2 ? '/blog/' : `/blog/${page - 1}/`;
+const nextPagePath = page < totalPages ? `/blog/${page + 1}/` : null;
+---
+<DefaultLayout title={`Blog - page ${page}`}>
+  <BlogList
+    posts={posts}
+    previousPagePath={previousPagePath}
+    nextPagePath={nextPagePath}
+  />
+</DefaultLayout>

@@ -1,0 +1,30 @@
+---
+import { siteData, loadAdHtml } from '../data/index';
+
+const activeAds = (siteData.ads.partners || []).filter((ad: any) => ad.active === true);
+---
+{activeAds.length > 0 && (
+  <div class="container">
+    <div id="adCarousel" class="carousel slide" aria-label="Partneranzeigen" data-bs-ride="carousel"
+      data-bs-pause="false">
+
+      <span class="ad-badge">Werbung</span>
+
+      <div class="carousel-inner">
+        {activeAds.map((ad: any, idx: number) => (
+          <div class={`carousel-item ${idx === 0 ? 'active' : ''}`} set:html={loadAdHtml(ad.include)} />
+        ))}
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#adCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Zurück</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#adCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Weiter</span>
+      </button>
+    </div>
+  </div>
+)}

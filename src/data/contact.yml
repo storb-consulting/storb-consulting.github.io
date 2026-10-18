@@ -1,0 +1,28 @@
+intro:
+  headline: "Kontakt"
+  text: "Wir freuen uns, Sie auf unserer Website begrüßen zu dürfen. Als Beratungs- und Serviceunternehmen im IT-Markt unterstützen wir Projekte von der Planung über die Entwicklung bis zur Markteinführung und den Betrieb."
+  subtext: "Haben Sie Fragen zu unseren Leistungen oder zu unserem Unternehmen? Sie erreichen uns direkt per E-Mail oder Telefon."
+
+contact_info:
+  mobile:
+    label: "Mobil"
+    value: "+49 (0) 1590 6810 667"
+    href: "tel:+4915906810667"
+    icon: "smartphone"
+  
+  email:
+    label: "E-Mail"
+    value: "mail2storb@gmail.com"
+    href: "mailto:mail2storb@gmail.com"
+    icon: "mail"
+
+  website:
+    label: "Internet"
+    value: "https://chstorb.github.io"
+    href: "https://chstorb.github.io"
+    icon: "language"
+
+links:
+  - title: "Ansprechpartner"
+    url: "/contact/contacts"
+    icon: "badge"

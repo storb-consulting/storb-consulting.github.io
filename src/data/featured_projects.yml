@@ -1,0 +1,73 @@
+intro:
+  headline: "Ausgewählte Projekte"
+  text: "Unsere Beratungspraxis verdeutlicht: Das breite Spektrum unserer Auftraggeber stärkt unsere Lösungskompetenz. Hier finden Sie eine Auswahl unserer erfolgreichsten Projekte aus IT, E-Government und Industrie."
+
+projects:
+  - title: "A2LL"
+    subtitle: "Arbeitslosengeld 2, Leistungen zum Lebensunterhalt"
+    description: "Das größte webgestützte Transaktionssystem Deutschlands und Grundlage für die Umsetzung der Hartz-IV-Reform."
+    icon: "account_balance"
+    type: "material"
+    highlights:
+      - "Bis zu 40.000 gleichzeitige Nutzer, ca. 800.000 Buchungen pro Tag"
+      - "Eine der größten E-Government-Lösungen Europas"
+      - "Elektronische Erfassung, Auszahlung und Versicherungsanmeldung"
+
+  - title: "ABIT Kredit"
+    subtitle: "Kreditprozess-Management"
+    description: "Leistungsfähige Softwarelösung für den gesamten Kreditprozess, von der Antragstellung bis zur Sachbearbeitung."
+    icon: "payments"
+    type: "material"
+    highlights:
+      - "Kreditantrags- und Kreditsachbearbeitung für alle Engagementgrößen"
+      - "Zentraler und dezentraler Einsatz möglich"
+      - "Hohe Flexibilität bei Konfiguration von Produkten und Prozessen"
+
+  - title: "ARTEMIS"
+    subtitle: "UMTS Trace Tool"
+    description: "High-Speed-Analyse-Werkzeug für W-CDMA Netzwerke zur Optimierung der Mobilfunk-Infrastruktur."
+    icon: "cell_tower"
+    type: "material"
+    highlights:
+      - "Echtzeit-Analyse von Netzwerkdaten"
+      - "Unterstützung bei Fehlerdiagnose und Optimierung"
+
+  - title: "CASQ-it APQP"
+    subtitle: "Advanced Product Quality Planning"
+    description: "Software für Projektmanagement nach ISO/TS 16949 zur Qualitätsvorausplanung in der Automobilindustrie."
+    icon: "fact_check"
+    type: "material"
+    highlights:
+      - "Strukturierte Projektverfolgung mit Checklisten"
+      - "Kompakte Statusreports für jederzeitige Übersicht"
+      - "Einhaltung strenger Qualitätsnormen"
+
+  - title: "POLADIS-neu"
+    subtitle: "Polizeiliches Informationssystem RLP"
+    description: "Anwenderorientiertes Dezentrales InformationsSystem für die Polizei Rheinland-Pfalz."
+    icon: "local_police"
+    type: "material"
+    highlights:
+      - "Vorgangsbearbeitungssystem für alle Dienststellen"
+      - "Schnittstellen zur Justiz und Kriminalstatistik (PKS)"
+      - "Elektronischer Vorgangsaustausch und Fahndungsanbindung (POLIS)"
+
+  - title: "proKOM"
+    subtitle: "Datenredaktion T-Com"
+    description: "Informationsverarbeitungssystem für die effiziente Datenredaktion und Teilnehmerverwaltung."
+    icon: "database"
+    type: "material"
+    highlights:
+      - "Erfassung, Austausch und Nutzung von Teilnehmerdaten"
+      - "Hochverfügbare Datenverarbeitung"
+
+  - title: "X-Pact®"
+    subtitle: "Stahlwerksautomation"
+    description: "Metallurgische Prozessmodelle und Level-2 Computersysteme für die Automatisierung von Stahlwerken."
+    icon: "factory"
+    type: "material"
+    highlights:
+      - "Energie- und Materialmanagement (Schmelzverhalten)"
+      - "Mess-, Steuerungs- und Regeltechnik"
+      - "Kostenreduktion und Qualitätssteigerung"
+      - "Massen- und Energiebilanzen"

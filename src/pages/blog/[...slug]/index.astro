@@ -1,0 +1,52 @@
+---
+import { render } from 'astro:content';
+import PostLayout from '../../../layouts/PostLayout.astro';
+import { getSortedPosts, getPostUrl, getPostExcerptText } from '../../../utils/posts';
+
+export async function getStaticPaths() {
+  const sortedPosts = await getSortedPosts();
+  const paths: any[] = [];
+
+  for (let i = 0; i < sortedPosts.length; i++) {
+    const post = sortedPosts[i];
+    const url = getPostUrl(post);
+    if (!url.startsWith('/blog/') || !url.endsWith('/')) continue;
+
+    const routeParam = url.replace(/^\/blog\//, '').replace(/\/$/, '');
+    const prevObj = i + 1 < sortedPosts.length ? sortedPosts[i + 1] : null;
+    const nextObj = i - 1 >= 0 ? sortedPosts[i - 1] : null;
+
+    paths.push({
+      params: { slug: routeParam },
+      props: {
+        post,
+        previousPost: prevObj ? { url: getPostUrl(prevObj), title: prevObj.data.title } : null,
+        nextPost: nextObj ? { url: getPostUrl(nextObj), title: nextObj.data.title } : null,
+      },
+    });
+  }
+
+  return paths;
+}
+
+const { post, previousPost, nextPost } = Astro.props;
+const { Content } = await render(post);
+const description = post.data.description || getPostExcerptText(post.body || '', 50);
+---
+<PostLayout
+  title={post.data.title}
+  description={description}
+  date={post.data.date || new Date()}
+  categories={post.data.categories}
+  author={post.data.author}
+  locale={post.data.locale}
+  image={post.data.image}
+  caption={post.data.caption}
+  canonical_url={post.data.canonical_url}
+  twitter={post.data.twitter}
+  robots={post.data.robots}
+  previousPost={previousPost}
+  nextPost={nextPost}
+>
+  <Content />
+</PostLayout>

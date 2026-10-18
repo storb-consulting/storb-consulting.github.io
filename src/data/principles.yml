@@ -1,0 +1,19 @@
+- title: "Unabhängigkeit"
+  description: "Wir wahren die Unabhängigkeit von Dritten – insbesondere bei Entscheidungen über Lieferanten oder Partner unserer Klienten."
+  icon: "handshake" # Symbolizes business, but independence within it. Or 'business_center'
+  type: "material"
+
+- title: "Objektivität"
+  description: "Unsere Beratung berücksichtigt Chancen und Risiken gleichermaßen und bleibt stets sachlich fundiert."
+  icon: "balance" # Scales
+  type: "material"
+
+- title: "Kompetenz"
+  description: "Wir beraten ausschließlich in Feldern, in denen wir nachweislich Kompetenz besitzen oder erworben haben."
+  icon: "workspace_premium" # Award/Skill
+  type: "material"
+
+- title: "Vertraulichkeit"
+  description: "Alle im Beratungsprozess gewonnenen Kenntnisse und Informationen bleiben vertraulich und gelangen nicht an Dritte."
+  icon: "lock" # Security
+  type: "material"
