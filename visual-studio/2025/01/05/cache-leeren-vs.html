@@ -1,15 +1,15 @@
-<!DOCTYPE html><html lang="de" class="h-100" data-bs-theme="dark"> <head><!-- Character encoding --><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><!-- SEO & Social --><title>Cache leeren in Visual Studio 2022: So geht&#39;s! | Christian Storb</title><meta property="og:title" content="Cache leeren in Visual Studio 2022: So geht's!"><meta name="author" content="Christian Storb"><meta property="og:locale" content="de_DE"><meta name="description" content="Das Leeren des Caches in Visual Studio 2022 kann helfen, die Leistung zu verbessern und Probleme zu vermeiden. Temporäre Dateien können im Laufe der Zeit veraltet oder beschädigt werden. Der Artikel beschreibt, wie man den Komponenten-Cache, Temp-Ordner, Roslyn-Ordner, temporäre ASP.NET-Dateien, Website-Cache, Sicherungsdateien und Projekt-Assemblies leeren kann, um eine stabile und effiziente Entwicklungsumgebung zu gewährleisten."><meta property="og:description" content="Das Leeren des Caches in Visual Studio 2022 kann helfen, die Leistung zu verbessern und Probleme zu vermeiden. Temporäre Dateien können im Laufe der Zeit veraltet oder beschädigt werden. Der Artikel beschreibt, wie man den Komponenten-Cache, Temp-Ordner, Roslyn-Ordner, temporäre ASP.NET-Dateien, Website-Cache, Sicherungsdateien und Projekt-Assemblies leeren kann, um eine stabile und effiziente Entwicklungsumgebung zu gewährleisten."><link rel="canonical" href="https://chstorb.github.io/visual-studio/2025/01/05/cache-leeren-vs/"><meta property="og:url" content="https://chstorb.github.io/visual-studio/2025/01/05/cache-leeren-vs/"><meta property="og:site_name" content="Christian Storb"><meta property="og:image" content="https://chstorb.github.io/assets/images/consulting/blog/coding-924920_1280.webp"><meta property="og:type" content="article"><meta property="article:published_time" content="2025-01-05T14:32:30.000Z"><meta name="twitter:card" content="summary_large_image"><meta property="twitter:image" content="https://chstorb.github.io/assets/images/consulting/blog/coding-924920_1280.webp"><meta property="twitter:title" content="Cache leeren in Visual Studio 2022: So geht's!"><meta name="twitter:site" content="@ChristianStorb"><meta name="twitter:creator" content="@ChristianStorb"><meta property="article:publisher" content="https://www.facebook.com/storb.christian/"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Christian Storb","url":"https://chstorb.github.io/author/christian-storb/"},"description":"Das Leeren des Caches in Visual Studio 2022 kann helfen, die Leistung zu verbessern und Probleme zu vermeiden. Temporäre Dateien können im Laufe der Zeit veraltet oder beschädigt werden. Der Artikel beschreibt, wie man den Komponenten-Cache, Temp-Ordner, Roslyn-Ordner, temporäre ASP.NET-Dateien, Website-Cache, Sicherungsdateien und Projekt-Assemblies leeren kann, um eine stabile und effiziente Entwicklungsumgebung zu gewährleisten.","headline":"Cache leeren in Visual Studio 2022: So geht's!","image":"https://chstorb.github.io/assets/images/consulting/blog/coding-924920_1280.webp","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://chstorb.github.io/assets/images/consulting/og-image.png"},"name":"Christian Storb"},"url":"https://chstorb.github.io/visual-studio/2025/01/05/cache-leeren-vs/","datePublished":"2025-01-05T14:32:30.000Z","dateModified":"2025-01-05T14:32:30.000Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://chstorb.github.io/visual-studio/2025/01/05/cache-leeren-vs/"}}</script><script type="application/ld+json">
+<!DOCTYPE html><html lang="de" class="h-100" data-bs-theme="dark"> <head><!-- Character encoding --><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><!-- SEO & Social --><title>Cache leeren in Visual Studio 2022: So geht&#39;s! | Christian Storb</title><meta property="og:title" content="Cache leeren in Visual Studio 2022: So geht's!"><meta name="author" content="Christian Storb"><meta property="og:locale" content="de_DE"><meta name="description" content="Das Leeren des Caches in Visual Studio 2022 kann helfen, die Leistung zu verbessern und Probleme zu vermeiden. Temporäre Dateien können im Laufe der Zeit veraltet oder beschädigt werden. Der Artikel beschreibt, wie man den Komponenten-Cache, Temp-Ordner, Roslyn-Ordner, temporäre ASP.NET-Dateien, Website-Cache, Sicherungsdateien und Projekt-Assemblies leeren kann, um eine stabile und effiziente Entwicklungsumgebung zu gewährleisten."><meta property="og:description" content="Das Leeren des Caches in Visual Studio 2022 kann helfen, die Leistung zu verbessern und Probleme zu vermeiden. Temporäre Dateien können im Laufe der Zeit veraltet oder beschädigt werden. Der Artikel beschreibt, wie man den Komponenten-Cache, Temp-Ordner, Roslyn-Ordner, temporäre ASP.NET-Dateien, Website-Cache, Sicherungsdateien und Projekt-Assemblies leeren kann, um eine stabile und effiziente Entwicklungsumgebung zu gewährleisten."><link rel="canonical" href="https://storb-consulting.github.io/visual-studio/2025/01/05/cache-leeren-vs/"><meta property="og:url" content="https://storb-consulting.github.io/visual-studio/2025/01/05/cache-leeren-vs/"><meta property="og:site_name" content="Christian Storb"><meta property="og:image" content="https://storb-consulting.github.io/assets/images/consulting/blog/coding-924920_1280.webp"><meta property="og:type" content="article"><meta property="article:published_time" content="2025-01-05T14:32:30.000Z"><meta name="twitter:card" content="summary_large_image"><meta property="twitter:image" content="https://storb-consulting.github.io/assets/images/consulting/blog/coding-924920_1280.webp"><meta property="twitter:title" content="Cache leeren in Visual Studio 2022: So geht's!"><meta name="twitter:site" content="@ChristianStorb"><meta name="twitter:creator" content="@ChristianStorb"><meta property="article:publisher" content="https://www.facebook.com/storb.christian/"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Christian Storb","url":"https://storb-consulting.github.io/author/christian-storb/"},"description":"Das Leeren des Caches in Visual Studio 2022 kann helfen, die Leistung zu verbessern und Probleme zu vermeiden. Temporäre Dateien können im Laufe der Zeit veraltet oder beschädigt werden. Der Artikel beschreibt, wie man den Komponenten-Cache, Temp-Ordner, Roslyn-Ordner, temporäre ASP.NET-Dateien, Website-Cache, Sicherungsdateien und Projekt-Assemblies leeren kann, um eine stabile und effiziente Entwicklungsumgebung zu gewährleisten.","headline":"Cache leeren in Visual Studio 2022: So geht's!","image":"https://storb-consulting.github.io/assets/images/consulting/blog/coding-924920_1280.webp","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://storb-consulting.github.io/assets/images/consulting/og-image.png"},"name":"Christian Storb"},"url":"https://storb-consulting.github.io/visual-studio/2025/01/05/cache-leeren-vs/","datePublished":"2025-01-05T14:32:30.000Z","dateModified":"2025-01-05T14:32:30.000Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://storb-consulting.github.io/visual-studio/2025/01/05/cache-leeren-vs/"}}</script><script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "@id": "https://chstorb.github.io/#person",
+  "@id": "https://storb-consulting.github.io/#person",
   "name": "Christian Storb",
   "jobTitle": "Softwareentwickler und IT-Berater",
   "worksFor": [
     {
       "@type": "Organization",
       "name": "STORB Consulting",
-      "url": "https://chstorb.github.io"
+      "url": "https://storb-consulting.github.io"
     },
     {
       "@type": "Organization",
@@ -17,7 +17,7 @@
       "url": "https://www2.wibutler.com/"
     }
   ],
-  "url": "https://chstorb.github.io",
+  "url": "https://storb-consulting.github.io",
   "email": "mail2storb@gmail.com",
   "sameAs": [
     "https://github.com/chstorb",
@@ -43,16 +43,16 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": "https://chstorb.github.io/#organization",
+  "@id": "https://storb-consulting.github.io/#organization",
   "name": "STORB Consulting",
   "alternateName": "STC STORB Consulting",
-  "url": "https://chstorb.github.io",
-  "logo": "https://chstorb.github.io/assets/images/consulting/stclogotransparent.png",
+  "url": "https://storb-consulting.github.io",
+  "logo": "https://storb-consulting.github.io/assets/images/consulting/stclogotransparent.png",
   "founder": {
-    "@id": "https://chstorb.github.io/#person"
+    "@id": "https://storb-consulting.github.io/#person"
   },
   "sameAs": [
-    "https://chstorb.github.io",
+    "https://storb-consulting.github.io",
     "https://github.com/chstorb",
     "https://www.linkedin.com/in/christian-storb-326249aa/"
   ],

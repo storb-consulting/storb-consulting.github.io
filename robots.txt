@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://chstorb.github.io/sitemap.xml
+Sitemap: https://storb-consulting.github.io/sitemap.xml
 
 User-agent: Googlebot
 Allow: /
