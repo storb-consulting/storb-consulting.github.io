@@ -18,8 +18,8 @@ contact_info:
 
   website:
     label: "Internet"
-    value: "https://chstorb.github.io"
-    href: "https://chstorb.github.io"
+    value: "https://storb-consulting.github.io"
+    href: "https://storb-consulting.github.io"
     icon: "language"
 
 links:

@@ -8,11 +8,11 @@ export const siteConfig = {
   email: "mail2storb@gmail.com",
   description: "STORB Consulting unterstützt Ihr Projekt bei Kunden und Geschäftspartnern vor Ort – von der Planung über die Entwicklung bis zur Markteinführung und den Betrieb.",
   baseurl: "",
-  url: "https://chstorb.github.io",
+  url: "https://storb-consulting.github.io",
   author: {
     name: "Christian Storb",
     email: "mail2storb@gmail.com",
-    url: "https://chstorb.github.io/author/christian-storb/",
+    url: "https://storb-consulting.github.io/author/christian-storb/",
     avatar: "/assets/images/authors/christian-storb.jpg",
     github: "https://github.com/chstorb",
     linkedin: "https://www.linkedin.com/in/christian-storb-326249aa/",

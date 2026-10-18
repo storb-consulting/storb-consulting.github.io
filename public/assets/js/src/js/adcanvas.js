@@ -2,7 +2,7 @@
  * // path: src/js/adcanvas.js
  * AdCanvas
  * Lightweight, framework‑agnostic ad rendering engine.
- * https://chstorb.github.io
+ * https://storb-consulting.github.io
  * https://github.com/chstorb/adcanvas
  *
  * Author: Christian Storb
@@ -20,7 +20,7 @@ window.AdCanvasConfig = window.AdCanvasConfig || {};
 // -------- CONFIGURATION --------
 const CONFIG = {
     // Core configuration
-    feedUrl: window.AdCanvasConfig.feedUrl || "https://chstorb.github.io/data.json",
+    feedUrl: window.AdCanvasConfig.feedUrl || "https://storb-consulting.github.io/data.json",
     enableDebug: window.AdCanvasConfig.enableDebug === true,
 
     // DataSource logic (URL, transform, filter, sort, fallback)
